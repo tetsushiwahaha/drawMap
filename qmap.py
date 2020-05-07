@@ -14,11 +14,16 @@ class DataStruct():
 		self.ax =None
 		self.fig =None
 
+def window_closed(ax):
+    fig = ax.figure.canvas.manager
+    mgr = plt._pylab_helpers.Gcf.figs.values()
+    return fig not in mgr
+
 def keyin(event, s, data):
 	ptr = data.param_ptr
 	if event.key == 'q':
-		plt.close('all') 
 		print("quit")	
+		plt.close('all') 
 		sys.exit()
 	elif event.key == 'w':
 		jd = json.dumps(data.dict)
@@ -89,6 +94,7 @@ def func(x, data):
 def main():
 	plt.rcParams['keymap.save'].remove('s')
 	plt.rcParams['keymap.quit'].remove('q')
+
 	data = DataStruct()
 
 	data.fig = plt.figure(figsize=(10, 10))
@@ -111,6 +117,8 @@ def main():
 	xlist = []
 	ylist = []
 	while running:
+		if window_closed(data.ax) == True:
+			sys.exit()
 		x = func(x0, data)
 		xlist.append(x[0])
 		ylist.append(x[1])
