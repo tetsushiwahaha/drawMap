@@ -12,7 +12,12 @@
  
  Edit `def_func.py` and change expressions in this file.
  
- * x[0], x[1]: state variables
- * data.dict['params'][0], data.dict['params'][1]: parameters
+ * `x[0]`, `x[1]`: state variables
+ * `data.dict['params'][0]`, `data.dict['params'][1]`: parameters
+ 
+ ## to examine Henon map
+  
+    return [ 1.0 - data.dict['params'][1] * x[0] * x[0] + x[1], data.dict['params'][1] * x[0] ]
  
  
+    
