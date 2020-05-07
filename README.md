@@ -8,4 +8,11 @@
 
     % python map.py in.json
  
+ # to examine another map
+ 
+ Edit `def_func.py` and change expressions in this file.
+ 
+ * x[0], x[1]: state variables
+ * data.dict['params'][0], data.dict['params'][1]: parameters
+ 
  
