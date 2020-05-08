@@ -17,7 +17,8 @@
  
  ## to examine Henon map
   
-    return [ 1.0 - data.dict['params'][0] * x[0] * x[0] + x[1], 
+    return [ 
+        1.0 - data.dict['params'][0] * x[0] * x[0] + x[1], 
         data.dict['params'][1] * x[0] 
     ]
  
