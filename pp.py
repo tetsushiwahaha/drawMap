@@ -5,11 +5,6 @@ import matplotlib.pyplot as plt
 import pptools
 import ppfunc
 
-#########################################################################
-# ESSENTIAL CODES BELOW
-#########################################################################
-
-
 def main():
 	plt.rcParams['keymap.save'].remove('s')
 	plt.rcParams['keymap.quit'].remove('q')
@@ -30,9 +25,6 @@ def main():
 	plt.ion() # I/O non blocking
 
 	running = True
-
-	print(data.dict['params'][0])
-	print(data.dict['params'][1])
 	
 	cnt = 0
 	xlist = []
