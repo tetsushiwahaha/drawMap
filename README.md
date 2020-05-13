@@ -1,16 +1,17 @@
 # drawMap
 
-* map.py --- main routine
-* def_func.py --- a function definiton. Change this appropriately.
+* pp.py --- main routine
+* ppfunc.py --- a function definiton. Change this appropriately.
+* pptools.py --- some functions.
 * in.json --- sample input file.
 
 # to exec
 
-    % python map.py in.json
+    % python pp.py in.json
  
  # to examine another map
  
- Edit `def_func.py` and change expressions in this file.
+ Edit `ppfunc.py` and change expressions in this file.
  
  * `x[0]`, `x[1]`: state variables
  * `data.dict['params'][0]`, `data.dict['params'][1]`: parameters
