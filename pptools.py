@@ -80,4 +80,5 @@ def initial_setup(data):
 	data.ax.set_ylim(yr[0], yr[1])
 	data.ax.set_xlabel('x')
 	data.ax.set_ylabel('y')
+	data.ax.grid(c = 'gainsboro', zorder = 9)
 
