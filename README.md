@@ -33,5 +33,5 @@ Replace the return sentence by the following codes:
         data.dict['params'][1] * x[0] 
     ]
  
-![Figure_1](https://user-images.githubusercontent.com/52724526/81895103-6d7dc180-95ec-11ea-8760-c08df1757440.png)
+![Figure_1]<img src="https://user-images.githubusercontent.com/52724526/81895103-6d7dc180-95ec-11ea-8760-c08df1757440.png" width=300px>
  
