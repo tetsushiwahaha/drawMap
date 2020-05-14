@@ -38,7 +38,7 @@ def main():
 		x0 = x
 		if (cnt > data.dict['break']): 
 			plt.plot(xlist, ylist, 'o', markersize = 0.3, 
-				color="black", alpha = 0.2)
+				color="black", alpha = data.dict['alpha'])
 			xlist.clear()
 			ylist.clear()
 			data.dict['x0'] = x0

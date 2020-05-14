@@ -13,6 +13,8 @@ class DataStruct():
 		self.param_ptr = 0
 		self.ax =None
 		self.fig =None
+		if self.dict.get('alpha', None) == None:
+			self.dict['alpha'] = 1.0
 
 def window_closed(ax):
     fig = ax.figure.canvas.manager
