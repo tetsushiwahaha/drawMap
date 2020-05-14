@@ -37,9 +37,11 @@ def main():
 		ylist.append(x[1])
 		x0 = x
 		if (cnt > data.dict['break']): 
-			plt.plot(xlist, ylist, 'o', markersize = 0.3, color="black")
+			plt.plot(xlist, ylist, 'o', markersize = 0.3, 
+				color="black", alpha = 0.2)
 			xlist.clear()
 			ylist.clear()
+			data.dict['x0'] = x0
 			plt.pause(0.01) 
 			cnt = 0
 		cnt += 1
