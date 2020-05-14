@@ -25,7 +25,7 @@ def init():
 	data.fig = plt.figure(figsize=(10, 10))
 	data.ax = data.fig.add_subplot(111)
 
-	initial_setup(data)
+	redraw_frame(data)
 
 	plt.connect('button_press_event', 
 		lambda event: on_click(event, data.dict['x0'], data))
@@ -53,10 +53,10 @@ def keyin(event, s, data):
 		print("wrote a file")
 	elif event.key == ' ' or event.key == 'e':
 		plt.cla()
-		initial_setup(data)
+		redraw_frame(data)
 	elif event.key == 'f':
 		plt.cla()
-		initial_setup(data)
+		redraw_frame(data)
 	elif event.key == 's':
 		for i in data.dict['params']:
 			print(i, end=' ')
@@ -87,13 +87,13 @@ def on_click(event, s0, data):
 	s0[1] = event.ydata
 	plt.plot(s0[0], s0[1], 'o', markersize = 2, color="red")
 	print(s0[0], s0[1])
-	initial_setup(data)
+	redraw_frame(data)
 	show_param(data)
 
 def on_close():
 	running = False
 
-def initial_setup(data):
+def redraw_frame(data):
 	xr = data.dict['xrange']
 	yr = data.dict['yrange']
 	data.ax.set_xlim(xr[0], xr[1])
