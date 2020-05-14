@@ -14,8 +14,8 @@ Chaotic attractor of a difference equation is visualized.
 ## Requirements
 
 * python 3.6 or later
- * numpy
- * matplotlib
+    * numpy
+    * matplotlib
 
 ## How to use
 ### to exec
@@ -30,7 +30,7 @@ in the graph.
 ### key operation
 
 - s: print the current status
-- w: print the dictionary and dump it to __ppout__.json
+- w: print the dictionary and dump it to `__ppout__.json`
 - p: change the active parameter (default: 0, toggle)
 - up and down arrows: increase/decrease the active parameter value
 - space: clear transitions
