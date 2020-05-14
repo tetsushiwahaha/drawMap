@@ -1,28 +1,14 @@
 import sys, json
-import numpy as np
+# import numpy as np
 import matplotlib.pyplot as plt
 
 import pptools
 import ppfunc
 
 def main():
-	plt.rcParams['keymap.save'].remove('s')
-	plt.rcParams['keymap.quit'].remove('q')
 
-	data = pptools.DataStruct()
-
-	data.fig = plt.figure(figsize=(10, 10))
-	data.ax = data.fig.add_subplot(111)
-
+	data = pptools.init()
 	x0 = data.dict['x0']
-
-	pptools.initial_setup(data)
-
-	plt.connect('button_press_event', 
-		lambda event: pptools.on_click(event, x0, data))
-	plt.connect('key_press_event', 
-		lambda event: pptools.keyin(event, x0, data))
-	plt.ion() # I/O non blocking
 
 	running = True
 	

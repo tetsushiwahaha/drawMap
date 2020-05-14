@@ -1,13 +1,13 @@
 <img src="https://user-images.githubusercontent.com/52724526/81895103-6d7dc180-95ec-11ea-8760-c08df1757440.png" width=300px>
  
-# drawMap --- draw a chaotic attractor 
+# drawMap --- draw a chaotic attractor dynamically
 
 Chaotic attractor of a difference equation is visualized. 
 
 ## Files
 
 * pp.py --- main routine
-* ppfunc.py --- a function definiton. Change this appropriately.
+* ppfunc.py --- a function definition. Change this appropriately.
 * pptools.py --- some functions.
 * in.json --- sample input file. A JSON format.
 

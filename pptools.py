@@ -1,5 +1,5 @@
 import json, sys
-import numpy as np
+# import numpy as np
 import matplotlib.pyplot as plt
 
 class DataStruct():
@@ -15,6 +15,24 @@ class DataStruct():
 		self.fig =None
 		if self.dict.get('alpha', None) == None:
 			self.dict['alpha'] = 1.0
+
+def init():
+	plt.rcParams['keymap.save'].remove('s')
+	plt.rcParams['keymap.quit'].remove('q')
+
+	data = DataStruct()
+
+	data.fig = plt.figure(figsize=(10, 10))
+	data.ax = data.fig.add_subplot(111)
+
+	initial_setup(data)
+
+	plt.connect('button_press_event', 
+		lambda event: on_click(event, data.dict['x0'], data))
+	plt.connect('key_press_event', 
+		lambda event: keyin(event, data.dict['x0'], data))
+	plt.ion() # I/O non blocking
+	return data
 
 def window_closed(ax):
     fig = ax.figure.canvas.manager
@@ -83,4 +101,3 @@ def initial_setup(data):
 	data.ax.set_xlabel('x')
 	data.ax.set_ylabel('y')
 	data.ax.grid(c = 'gainsboro', zorder = 9)
-
