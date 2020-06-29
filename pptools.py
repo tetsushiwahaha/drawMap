@@ -1,6 +1,7 @@
 import json, sys
-# import numpy as np
+import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.backends.backend_pdf import PdfPages
 
 class DataStruct():
 	def __init__(self):
@@ -50,7 +51,11 @@ def keyin(event, s, data):
 		print(jd)
 		with open("__ppout__.json", 'w') as fd:
 			json.dump(data.dict, fd, indent=4)
-		print("wrote a file")
+		print("now writing...", end="")
+		pdf = PdfPages('snapshot.pdf')
+		pdf.savefig()
+		pdf.close()
+		print("done.")
 	elif event.key == ' ' or event.key == 'e':
 		plt.cla()
 		redraw_frame(data)
@@ -101,3 +106,10 @@ def redraw_frame(data):
 	data.ax.set_xlabel('x')
 	data.ax.set_ylabel('y')
 	data.ax.grid(c = 'gainsboro', zorder = 9)
+
+def func(x, data):
+    v =  []
+    for i in np.arange(len(data.dict['func'])):
+        v.append(eval(data.dict['func'][i]))
+    return v
+
