@@ -6,10 +6,10 @@ Chaotic attractor of a difference equation is visualized.
 
 ## Files
 
-* pp.py --- main routine
-* ppfunc.py --- a function definition. Change this appropriately.
-* pptools.py --- some functions.
-* in.json --- sample input file. A JSON format.
+* pp.py: main routine
+* pptools.py: some functions.
+* in.json: sample input file. A JSON format. Describe parameters and a
+definition of the ODE. 
 
 ## Requirements
 
@@ -24,21 +24,22 @@ Chaotic attractor of a difference equation is visualized.
 
 ### mouse operation 
 
-- A new initial values is given by clicking on the appropriate location
+- A new initial values can be  given by clicking on the appropriate location
 in the graph.
  
 ### key operation
 
-- s: print the current status
-- w: print the dictionary and dump it to `__ppout__.json`
-- p: change the active parameter (default: 0, toggle)
+- `s`: print the current status
+- `w`: print the dictionary and dump it to `__ppout__.json` and publish
+  a screenshot PDF file as `snapshot.pdf`.
+- `p`: change the active parameter (default: 0, toggle)
 - up and down arrows: increase/decrease the active parameter value
-- space: clear transitions
-- q: quit 
+- `space`: clear transitions
+- `q`: quit 
  
 ### to examine another map
  
- Edit `ppfunc.py` and change expressions in this file.
+ Open the setup file and change expressions on the ODE in this file.
  
  * `x[0]`, `x[1]`: state variables
  * `data.dict['params'][0]`, `data.dict['params'][1]`: parameters
@@ -46,8 +47,11 @@ in the graph.
 ### Example: Henon map
 Replace the return sentence by the following codes:
 
-    return [ 
-        1.0 - data.dict['params'][0] * x[0] * x[0] + x[1], 
-        data.dict['params'][1] * x[0] 
+    func: [ 
+        "1.0 - data.dict['params'][0] * x[0] * x[0] + x[1]", 
+        "data.dict['params'][1] * x[0]"
     ]
  
+CAUTONS: If this definition is not located in the end of the setup file,
+you should add a comma right after a close bracket.
+
