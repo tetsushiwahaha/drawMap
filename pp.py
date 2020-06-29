@@ -1,9 +1,8 @@
 import sys, json
-# import numpy as np
+import numpy as np
 import matplotlib.pyplot as plt
 
 import pptools
-import ppfunc
 
 def main():
 
@@ -18,7 +17,7 @@ def main():
 	while running:
 		if pptools.window_closed(data.ax) == True:
 			sys.exit()
-		x = ppfunc.func(x0, data)
+		x = pptools.func(x0, data)
 		xlist.append(x[0])
 		ylist.append(x[1])
 		x0 = x
