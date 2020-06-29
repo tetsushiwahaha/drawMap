@@ -30,8 +30,8 @@ in the graph.
 ### key operation
 
 - `s`: print the current status
-- `w`: print the dictionary and dump it to `__ppout__.json` and publish
-  a screenshot PDF file as `snapshot.pdf`.
+- `w`: print the dictionary and dump it to `__ppout__.json` and also,
+publish a screenshot PDF file as `snapshot.pdf`.
 - `p`: change the active parameter (default: 0, toggle)
 - up and down arrows: increase/decrease the active parameter value
 - `space`: clear transitions
@@ -45,7 +45,7 @@ in the graph.
  * `data.dict['params'][0]`, `data.dict['params'][1]`: parameters
  
 ### Example: Henon map
-Replace the return sentence by the following codes:
+In the setup file, replace the "func" section by the following codes:
 
     "func": [ 
         "1.0 - data.dict['params'][0] * x[0] * x[0] + x[1]", 
