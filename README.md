@@ -47,7 +47,7 @@ in the graph.
 ### Example: Henon map
 Replace the return sentence by the following codes:
 
-    func: [ 
+    "func": [ 
         "1.0 - data.dict['params'][0] * x[0] * x[0] + x[1]", 
         "data.dict['params'][1] * x[0]"
     ]
