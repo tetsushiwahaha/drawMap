@@ -88,6 +88,8 @@ def show_param(data):
 	plt.title(s, color=(0.8, 0.8, 0.8))
 
 def on_click(event, s0, data):
+	if event.xdata == None and event.ydata == None:
+		return
 	s0[0] = event.xdata
 	s0[1] = event.ydata
 	plt.plot(s0[0], s0[1], 'o', markersize = 2, color="red")

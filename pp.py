@@ -21,6 +21,7 @@ def main():
 		xlist.append(x[0])
 		ylist.append(x[1])
 		x0 = x
+		cnt += 1
 		if (cnt > data.dict['break']): 
 			plt.plot(xlist, ylist, 'o', markersize = 0.3, 
 				color="black", alpha = data.dict['alpha'])
@@ -29,7 +30,6 @@ def main():
 			data.dict['x0'] = x0
 			plt.pause(0.01) 
 			cnt = 0
-		cnt += 1
 
 if __name__ == '__main__':
 	main()
