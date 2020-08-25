@@ -12,10 +12,13 @@ class DataStruct():
 		self.dict = json.load(fd)
 		fd.close()
 		self.param_ptr = 0
-		self.ax =None
-		self.fig =None
+		self.ax = None
+		self.fig = None
+		self.running = True
 		if self.dict.get('alpha', None) == None:
 			self.dict['alpha'] = 1.0
+		if self.dict.get('explode', None) == None:
+			self.dict['explode'] = 1000.0
 
 def init():
 	plt.rcParams['keymap.save'].remove('s')
@@ -94,6 +97,7 @@ def on_click(event, s0, data):
 	s0[1] = event.ydata
 	plt.plot(s0[0], s0[1], 'o', markersize = 2, color="red")
 	print(s0[0], s0[1])
+	data.running = True
 	redraw_frame(data)
 	show_param(data)
 
