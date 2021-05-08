@@ -15,8 +15,8 @@
 "explode": 10000,
 
 "func": [
-		"x[1] + data.dict['params'][0] * x[0]",
-		"x[0] * x[0] +  data.dict['params'][1]"
+		"x[1] + data.dic['params'][0] * x[0]",
+		"x[0] * x[0] +  data.dic['params'][1]"
 	]
 }
 
