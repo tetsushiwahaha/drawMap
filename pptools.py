@@ -24,10 +24,11 @@ class DataStruct():
 def init():
 	plt.rcParams['keymap.save'].remove('s')
 	plt.rcParams['keymap.quit'].remove('q')
+	plt.rcParams['font.size'] = 16
 
 	data = DataStruct()
 
-	data.fig = plt.figure(figsize=(10, 10))
+	data.fig = plt.figure(figsize=(8, 8))
 	data.ax = data.fig.add_subplot(111)
 
 	redraw_frame(data)
@@ -94,7 +95,7 @@ def show_param(data):
 	for key in data.dic['params']:
 		s += " param{:d}: {:.5f}  ".format(cnt, key) 
 		cnt += 1
-	plt.title(s, color=(0.8, 0.8, 0.8))
+	plt.title(s, color=(0.6, 0.6, 0.8))
 
 def on_click(event, s0, data):
 	if event.xdata == None and event.ydata == None:
@@ -115,8 +116,8 @@ def redraw_frame(data):
 	yr = data.dic['yrange']
 	data.ax.set_xlim(xr[0], xr[1])
 	data.ax.set_ylim(yr[0], yr[1])
-	data.ax.set_xlabel('x')
-	data.ax.set_ylabel('y')
+	data.ax.set_xlabel('$x$', fontsize=18)
+	data.ax.set_ylabel('$y$', fontsize=18)
 	data.ax.grid(c = 'gainsboro', zorder = 9)
 
 def func(x, data):
@@ -124,4 +125,3 @@ def func(x, data):
     for i in np.arange(len(data.dic['func'])):
         v.append(eval(data.dic['func'][i]))
     return v
-

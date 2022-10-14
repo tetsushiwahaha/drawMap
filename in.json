@@ -1,22 +1,31 @@
 {
-"_comment": "This is a samle setting file",
-
-"xrange": [ -2.0, 2.0],
-"yrange": [ -2.0, 2.0],
-
-"alpha": 0.25,
-"break": 2000,
-
-"x0":	[ 0.5, 0.3 ],
-"params":	[0.4, -1.24],
-
-"dparams":	[0.01, 0.01, 0.01],
-
-"explode": 10000,
-
-"func": [
-		"x[1] + data.dic['params'][0] * x[0]",
-		"x[0] * x[0] +  data.dic['params'][1]"
-	]
+    "_comment": "This is a samle setting file",
+    "func": [
+        "x[1] + data.dic['params'][0] * x[0]",
+        "x[0] * x[0] +  data.dic['params'][1]"
+    ],
+    "xrange": [
+        -2.0,
+        2.0
+    ],
+    "yrange": [
+        -2.0,
+        2.0
+    ],
+    "alpha": 0.25,
+    "break": 2000,
+    "x0": [
+        0.22556385718497723,
+        -1.0541829003470142
+    ],
+    "params": [
+        0.4,
+        -1.24
+    ],
+    "dparams": [
+        0.01,
+        0.01,
+        0.01
+    ],
+    "explode": 10000
 }
-
