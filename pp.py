@@ -9,8 +9,7 @@ def main():
 	data = pptools.init()
 	x0 = data.dic['x0']
 	cnt = 0
-	xlist = []
-	ylist = []
+	xlist = [[0] ,[0], [0]] 
 	while True:
 		x = pptools.func(x0, data) 	# x(k+1) = f(x(k))
 		if np.linalg.norm(x, ord=2) > data.dic['explode']:
@@ -18,8 +17,8 @@ def main():
 			explodeflag = True
 		else:
 			explodeflag = False
-		xlist.append(x[0])
-		ylist.append(x[1])
+		for m in range(data.dim):
+			xlist[m].append(x[m])
 		x0 = x
 		cnt += 1
 		if (cnt > data.dic['break']): 
@@ -27,10 +26,10 @@ def main():
 				sys.exit()
 			if explodeflag == True:
 				print("exploded.")
-			plt.plot(xlist, ylist, '.', markersize = 1, 
-				color = "black", alpha = data.dic['alpha'])
-			xlist.clear()
-			ylist.clear()
+			plt.plot(xlist[data.dispx], xlist[data.dispy], '.', 
+				markersize = 1, color = "black", alpha = data.dic['alpha'])
+			#xlist.clear()
+			xlist = [[0] ,[0], [0]] 
 			data.dic['x0'] = x0
 			cnt = 0
 			plt.pause(0.01) 	# plot data and check events
