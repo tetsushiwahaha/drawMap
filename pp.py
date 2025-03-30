@@ -7,30 +7,31 @@ import pptools
 
 def main():
 	data = pptools.init()
-	x0 = data.dic['x0']
 	cnt = 0
-	xlist = [[0] ,[0], [0]] 
+	xlist = []
+	x = data.dic['x0']
+	xlist.append(x)
+
 	while True:
-		x = pptools.func(x0, data) 	# x(k+1) = f(x(k))
+		x = pptools.func(x, data) 	# x(k+1) = f(x(k))
 		if np.linalg.norm(x, ord=2) > data.dic['explode']:
-			x = x0
 			explodeflag = True
 		else:
 			explodeflag = False
-		for m in range(data.dim):
-			xlist[m].append(x[m])
-		x0 = x
+		xlist.append(x)
 		cnt += 1
 		if (cnt > data.dic['break']): 
 			if pptools.window_closed(data.ax) == True:
 				sys.exit()
 			if explodeflag == True:
 				print("exploded.")
-			plt.plot(xlist[data.dispx], xlist[data.dispy], '.', 
-				markersize = 1, color = "black", alpha = data.dic['alpha'])
-			#xlist.clear()
-			xlist = [[0] ,[0], [0]] 
-			data.dic['x0'] = x0
+			plt.plot(
+				[row[data.dispx] for row in xlist], 
+				[row[data.dispy] for row in xlist], 'o', 
+				markersize = 1, 
+				color = "black", alpha = data.dic['alpha'])
+			x = data.now = xlist[-1]
+			xlist.clear()
 			cnt = 0
 			plt.pause(0.01) 	# plot data and check events
 

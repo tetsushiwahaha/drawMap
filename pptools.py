@@ -5,8 +5,6 @@ import numpy as np
 import argparse
 from matplotlib.backends.backend_pdf import PdfPages
 
-
-
 class DataStruct():
 	def __init__(self):
 		parser = argparse.ArgumentParser()
@@ -22,8 +20,8 @@ class DataStruct():
 		self.fig =None
 		self.dispx = 0
 		self.dispy = 1
-		self.now = [0.0, 0.0]
 		self.dim = len(self.dic['func'])
+		self.now = [0.0] * self.dim
 		if self.dic.get('alpha', None) == None:
 			self.dic['alpha'] = 1.0
 		if self.dic.get('dump_data', None) == 1:
@@ -105,12 +103,15 @@ def keyin(event, data):
 		data.dispy = data.dispx + 1
 		if data.dispy >= dim:
 			data.dispy = 0
-		# print(data.dispx, data.dispy)
+		print(data.dispx, data.dispy)
 	elif event.key == '-':
 		data.dispx -= 1
 		if data.dispx < 0 :
 			data.dispx = dim - 1
 		data.dispy -= 1
+		if data.dispy < 0 :
+			data.dispy = dim - 1
+		print(data.dispx, data.dispy)
 	elif event.key == 'q':
 		plt.close('all') 
 		print("quit")	
@@ -136,7 +137,7 @@ def keyin(event, data):
 		for i in data.dic['params']:
 			print(i, end=' ')
 		print(data.dic['x0'])
-		print(data.dic['period'])
+		#print(data.dic['period'])
 	elif event.key == 'p':
 		data.param_ptr += 1
 		if data.param_ptr >= len(data.dic['params']):
@@ -160,7 +161,7 @@ def show_param(data):
 	s = ""
 	cnt = 0
 	for key in data.dic['params']:
-		s += " $p_{:d}: {:.3g}$,  ".format(cnt, key) 
+		s += " $p_{:d}: {:.5g}$,  ".format(cnt, key) 
 		cnt += 1
 	print(s)
 	plt.title(s, color='b')
@@ -168,10 +169,11 @@ def show_param(data):
 def on_click(event, data):
 	if event.xdata == None or event.ydata == None:
 		return
-	s0 = data.now
+	s0 = data.now # only alloc s0
 	s0[data.dispx] = event.xdata
 	s0[data.dispy] = event.ydata
-	print(s0, data.dic['period'])
+	#print(s0, data.dic['period'])
+	print(s0)
 	plt.plot(s0[data.dispx], s0[data.dispy], 'o', markersize = 2, color="blue")
 	# copies an average value to the rest state variables
 	avg = (s0[data.dispx] + s0[data.dispy])/2.0
